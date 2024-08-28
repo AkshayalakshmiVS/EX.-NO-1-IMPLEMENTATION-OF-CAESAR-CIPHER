@@ -65,5 +65,7 @@ int main() {
 
 ## OUTPUT:
 
+![CRYPTO EX1](https://github.com/user-attachments/assets/8746f017-8ad5-43d1-874b-82fec97d3361)
+
 ## RESULT :
  Thus the implementation of ceasar cipher had been executed successfully.

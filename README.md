@@ -17,55 +17,34 @@ STEP-5: Display the cipher text obtained above.
 
 ## PROGRAM:
 ```
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
+#A python program to illustrate Caesar Cipher Technique
+def encrypt(text,s):
+	result = ""
 
-void encode(char *str, int offset, char *result) {
-    int i;
-    int length = strlen(str);
-    offset = offset % 26 + 26;
-    
-    for (i = 0; i < length; i++) {
-        if (isalpha(str[i])) {
-            if (isupper(str[i])) {
-                result[i] = 'A' + (str[i] - 'A' + offset) % 26;
-            } else {
-                result[i] = 'a' + (str[i] - 'a' + offset) % 26;
-            }
-        } else {
-            result[i] = str[i];
-        }
-    }
-    result[length] = '\0'; 
-}
+	# traverse text
+	for i in range(len(text)):
+		char = text[i]
 
-void decode(char *str, int offset, char *result) {
+		# Encrypt uppercase characters
+		if (char.isupper()):
+			result += chr((ord(char) + s-65) % 26 + 65)
 
-    encode(str, 26 - (offset % 26), result);
-}
+		# Encrypt lowercase characters
+		else:
+			result += chr((ord(char) + s - 97) % 26 + 97)
 
-int main() {
-    char msg[] = "Hello welcome to Security Laboratory";
-    char encoded[256];
-    char decoded[256];
-    
-    printf("Simulation of Caesar Cipher\n");
-    printf("Input message: %s\n", msg);
-    
-    encode(msg, 12, encoded);
-    printf("Encoded message: %s\n", encoded);
-    
-    decode(encoded, 12, decoded);
-    printf("Decoded message: %s\n", decoded);
-    
-    return 0;
-}
+	return result
+
+#check the above function
+text = "ATTACKATONCE"
+s = 4
+print ("Text : " + text)
+print ("Shift : " + str(s))
+print ("Cipher: " + encrypt(text,s))
+
 ```
-
 ## OUTPUT:
-
-![CRYPTO EX1](https://github.com/user-attachments/assets/8746f017-8ad5-43d1-874b-82fec97d3361)
+![image](https://github.com/AnnBlessy/EX.-NO-1-IMPLEMENTATION-OF-CAESAR-CIPHER/assets/119477835/8d4c95a8-07cc-4e51-99fc-10a455019e6e)
 
 ## RESULT :
  Thus the implementation of ceasar cipher had been executed successfully.
